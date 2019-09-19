@@ -858,14 +858,14 @@ function setCustomLabels() {
 
 function updateChairLabels() {
 	for(var row in rows) {
-		var label = 0;
+		var label = maxrows;
 		for(var c in chairs[row]) {
 			var chair = chairs[row][c];
 			chair.fontSize = customRowFontSizes[row];
 			if(labels[row]) {
 				if (chair.enabled) {
 					chair.label = labels[row][label] ? labels[row][label] : "";
-					label++;
+					label--;
 				} else {
 					chair.label = false;
 				};
