@@ -196,7 +196,7 @@ function drawChart() {
 			var nT = n;
 		}
 		if(letterRows)
-			a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.charAt(row);
+			a = 'RPNMLKJHGFEDCBA'.charAt(row);
 		var r = 350;
 		if(rows.length > 1)
 			r = 185 + step * row;
@@ -858,14 +858,14 @@ function setCustomLabels() {
 
 function updateChairLabels() {
 	for(var row in rows) {
-		var label = maxrows;
+		var label = 0;
 		for(var c in chairs[row]) {
 			var chair = chairs[row][c];
 			chair.fontSize = customRowFontSizes[row];
 			if(labels[row]) {
 				if (chair.enabled) {
 					chair.label = labels[row][label] ? labels[row][label] : "";
-					label--;
+					label++;
 				} else {
 					chair.label = false;
 				};
