@@ -9,6 +9,9 @@
   <meta name="description" content="A free browser-based tool for generating and printing semicircular seating charts.">
   <link rel="shortcut icon" href="seating_icon_2_0.ico" type="image/x-icon">
   <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
   
 <body>
@@ -74,6 +77,26 @@
         </div>
         
         <div style="float:right" class='align-right-container'>
+          <html lang="en">
+
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      }
+    </script>
+          
           <div id='print-button'>
             <a href='javascript:window.print()' id='print-icon'><img src="print-icon.png" alt="prt icon" style="width: 24px;top: 8px;height: 24px;position: relative;"></a>
             <a href='javascript:window.print()' id='print-text'>print</a>
